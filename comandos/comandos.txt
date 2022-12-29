@@ -1,0 +1,5 @@
+npx create-react-app proyecto001
+cd proyecto001
+npm start
+modificamos en el app.js
+localhost:3000

@@ -1,0 +1,11 @@
+import './Casilla.css'
+
+//ponemos fila y columna
+//color y valor
+function Casilla(props) {
+    return (
+        <span fila={props.fila} columna={props.columna} draggable="true" className={props.color==='negro'?'casillanegra casilla':'casillablanca casilla'} valor={props.pieza}>{unescape(props.pieza)}</span>
+    );
+}
+
+export default Casilla

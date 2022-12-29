@@ -1,0 +1,1 @@
+pegar en public/index.html los enlaces de bootstrap
