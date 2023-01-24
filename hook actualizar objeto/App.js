@@ -8,9 +8,9 @@ function Car() {
     model: "Mustang",
     year: "1964",
     color: "red"
-  });
+  });//creo del estado con valores iniciales
 
-  const updateColor = () => {
+  const updateColor = () => {//lo mismo del anterior y cambio el color
     setCar(previousState => {
       return { ...previousState, color: "blue" }
     });
@@ -21,18 +21,18 @@ function Car() {
       <h1>My {car.brand}</h1>
       <p>
         It is a {car.color} {car.model} from {car.year}.
-      </p>
+      </p>{/**enlazo con los atributos */}
       <button
         type="button"
         onClick={updateColor}
-      >Blue</button>
+      >Blue</button>{/**al clicar llamo la funcion */}
     </>
   )
 }
 
 function App() {
 
-
+//llamo ala funcion
   return (
     <div className="App">
       <Car/>

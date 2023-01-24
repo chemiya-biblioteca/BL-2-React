@@ -11,7 +11,7 @@ const initialValues = {
     nodejs: true,
     angular: false
   }
-};
+};//valores iniciales
 
 export default function App() {
   const {
@@ -25,15 +25,15 @@ export default function App() {
         (item) => initialValues.skills[item] === true
       )
     }
-  });
+  });//creo el formulario y doy de valores iniciales con el array de skills
 
   const onSubmit = (data) => {
     console.log(data);
-  };
+  };//al subirlo muestro los datos
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>{/**al enviarlo llamo la funcion */}
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -46,7 +46,7 @@ export default function App() {
                 message: "Please enter a valid email"
               }
             })}
-          />
+          />{/**email, lo registro y patron y requerido, muestro sus errores */}
           {errors.email && <p className="errorMsg">{errors.email.message}</p>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="gender">
@@ -64,7 +64,7 @@ export default function App() {
             label="Female"
             value="female"
             {...register("gender")}
-          />
+          />{/**genero, lo registro y requerido, muestro sus errores */}
           {errors.gender && <p className="errorMsg">{errors.gender.message}</p>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="skills">
@@ -94,7 +94,7 @@ export default function App() {
             label="Angular"
             value="angular"
             {...register("skills")}
-          />
+          />{/**hablidades, lo registro y requerido, muestro sus errores */}
           {errors.skills && <p className="errorMsg">{errors.skills.message}</p>}
         </Form.Group>
         <label></label>

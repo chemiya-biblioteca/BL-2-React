@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const [articulos, setArticulos] = useState([])
+  const [articulos, setArticulos] = useState([])//variable al inicio
 
-  useEffect(() => {
+  useEffect(() => {//hago peticion api
     fetch('https://scratchya.com.ar/react/datos.php')
       .then((response) => {
         return response.json()
       })
-      .then((articulos) => {
+      .then((articulos) => {//lo asigno a los articulos
         setArticulos(articulos)
       })
   }, [])
@@ -34,7 +34,7 @@ function App() {
               </tr>
             );
           })}
-        </tbody>
+        </tbody>{/**recorro el array y muestro su atributo por cada uno */}
       </table>
     </div>
   );

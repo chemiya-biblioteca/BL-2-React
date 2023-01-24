@@ -20,6 +20,6 @@ const Layout = () => {
       <Outlet />
     </>
   )
-};
+};//en el layotu pongo los links a la demas paginas
 
 export default Layout;

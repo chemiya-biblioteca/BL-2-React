@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const [rubros, setRubros] = useState([])
+  const [rubros, setRubros] = useState([])//variables iniciales
   const [rubroSeleccionado, setRubroSeleccionado] = useState({})
 
   useEffect(() => {
@@ -16,9 +16,9 @@ function App() {
         setRubros(rub)
         setRubroSeleccionado(rub[0])
       })
-  }, [])
+  }, [])//al iniciar cargo los datosy los pongo en las variables 
 
-  const [articulosRubro, setarticulosRubro] = useState([])
+  const [articulosRubro, setarticulosRubro] = useState([])//variables
   const [articuloSeleccionado, setArticuloSeleccionado] = useState([])
 
   useEffect(() => {
@@ -31,29 +31,30 @@ function App() {
           setarticulosRubro(art)
           setArticuloSeleccionado(art[0])
         })
-  }, [rubroSeleccionado])
+  }, [rubroSeleccionado])//al cargar si selecciono uno mando peticion para traer sus datos y los guardo
+  //cada vez que se actualice el rubro seleccionado tienes que llamar a esto
 
 
 
-  function cambiarRubro(e) {
+  function cambiarRubro(e) {//buscar uno en el array que su codigo sea iguala el del evento que llega
     const rubroSelect = rubros.find(r => Number.parseInt(r.codigo) === Number.parseInt(e.target.value))
     setRubroSeleccionado(rubroSelect)
   }
 
-  function cambiarArticulo(e) {
+  function cambiarArticulo(e) {//buscar uno en el array que su codigo sea iguala el del evento que llega
     setArticuloSeleccionado(articulosRubro.find(articulo => Number.parseInt(articulo.codigo) === Number.parseInt(e.target.value)))
   }
 
   return (
     <div className="formulario">
-      <div>
+      <div>{/**enlazo con el codigo del rubro seleccionado, al cambiar llamo metodo , cada opcion del array */}
         <select value={rubroSeleccionado.codigo} onChange={cambiarRubro}>
           {rubros.map(rubro => (
             <option key={rubro.codigo} value={rubro.codigo}>{rubro.nombre}</option>
           ))}
         </select>
       </div>
-      <div>
+      <div>{/**enlazo con el codigo del articulo seleccionado, al cambiar llamo metodo , cada opcion del array */}
         <select value={articuloSeleccionado.codigo} onChange={cambiarArticulo}>
           {articulosRubro.map(articulo => (
             <option key={articulo.codigo} value={articulo.codigo}>{articulo.nombre}</option>
@@ -61,7 +62,7 @@ function App() {
         </select>
       </div>
       <div>
-        <ul>
+        <ul>{/**enlazo con los seleccionados */}
           <li>Rubro:<strong>{rubroSeleccionado.nombre}</strong></li>
           <li>Articulo:<strong>{articuloSeleccionado.nombre}</strong></li>
           <li>Precio:<strong>{articuloSeleccionado.precio}</strong></li>

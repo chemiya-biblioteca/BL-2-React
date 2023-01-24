@@ -9,22 +9,22 @@ const departments = [
   { value: "Physics", label: "Physics" },
   { value: "Chemistry", label: "Chemistry" },
   { value: "Mathematics", label: "Mathematics" }
-];
+];//array con las opciones
 
 export default function App() {
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm();
+  } = useForm();//creo el formulario
 
-  const onSubmit = (data) => {
+  const onSubmit = (data) => {//al subirlo muestro los datos
     console.log(data);
   };
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>{/**al subir el formulario llamo la funcion */}
         <div className="form-control">
           <label>Select Department of Interest</label>
           <Controller
@@ -34,7 +34,7 @@ export default function App() {
             render={({ field }) => (
               <Select {...field} isMulti options={departments} />
             )}
-          />
+          />{/**enlazo con el control, requerido, y sus cambos en un select con sus opciones */}
           {errors.department && (
             <p className="errorMsg">This is a required field.</p>
           )}

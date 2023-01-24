@@ -3,15 +3,15 @@ import './App.css';
 
 import { useState, createContext, useContext } from "react";
 
-const UserContext = createContext();
+const UserContext = createContext();//creo el contexto
 
 function Component1() {
-  const [user, setUser] = useState("Jesse Hall");
+  const [user, setUser] = useState("Jesse Hall");//creo la variable
 
   return (
     <UserContext.Provider value={user}>
       <h1>{`Hello ${user}!`}</h1>
-      <Component2 />
+      <Component2 />{/**llamo al segundo y uso el contexto con la variable */}
     </UserContext.Provider>
   );
 }
@@ -22,7 +22,7 @@ function Component2() {
       <h1>Component 2</h1>
       <Component3 />
     </>
-  );
+  );//llamo siguiente
 }
 
 function Component3() {
@@ -31,7 +31,7 @@ function Component3() {
       <h1>Component 3</h1>
       <Component4 />
     </>
-  );
+  );//llamo siguiente
 }
 
 function Component4() {
@@ -40,7 +40,7 @@ function Component4() {
       <h1>Component 4</h1>
       <Component5 />
     </>
-  );
+  );//llamo siguiente
 }
 
 function Component5() {
@@ -51,17 +51,17 @@ function Component5() {
       <h1>Component 5</h1>
       <h2>{`Hello ${user} again!`}</h2>
     </>
-  );
+  );//llamo siguiente
 }
 
 function App() {
-  const user = useContext(UserContext);
+  const user = useContext(UserContext);//uso el conteto
 
   return (
     <div className="App">
       <Component1/>
     </div>
-  );
+  );//llamo al primer compoennte
 }
 
 export default App;

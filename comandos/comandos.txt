@@ -3,3 +3,7 @@ cd proyecto001
 npm start
 modificamos en el app.js
 localhost:3000
+npm i react-router-dom
+npm i react-hook-form
+npm i react-bootstrap
+npm i react-select
